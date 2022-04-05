@@ -30,7 +30,7 @@
   font-weight: bold;
   color: white;
   background-color: #894fac;
-  border: none;
+  border: solid 2px white;
   padding: 0.5rem;
   border-radius: 12px;
 }
