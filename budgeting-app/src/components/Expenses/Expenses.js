@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./Expenses.css";
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
   const [filter, setFilter] = useState("2022"); // useState is done in parent component (Expenses = parent of ExpensesFilter)
@@ -17,18 +17,6 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filter; // returns true for those that match criteria and adds to list
   });
 
-  let expensesContent = <p>No expenses found in {filter}.</p>;
-  if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={new Date(expense.date)}
-      />
-    ));
-  }
-
   return (
     <div>
       <Card className="expenses">
@@ -36,7 +24,7 @@ const Expenses = (props) => {
           selectedYear={filter}
           onChangeFilter={filterChangeHandler}
         />
-        {expensesContent}
+        <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );
