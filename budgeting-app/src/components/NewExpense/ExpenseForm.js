@@ -39,7 +39,7 @@ const ExpenseForm = (props) => {
 
   const dateChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, date: event.target.value };
+      return { ...prevState, date: new Date(event.target.value) };
     });
   };
 
