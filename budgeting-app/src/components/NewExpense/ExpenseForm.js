@@ -9,9 +9,9 @@ const ExpenseForm = () => {
 
   // one state approach using object
   const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
+    title: "",
+    amount: "",
+    date: "",
   });
 
   const titleChangeHandler = (event) => {
@@ -26,19 +26,19 @@ const ExpenseForm = () => {
     // below we pass an anonymous arrow function to setUserInput, which receives an up to date snapshot of previous state
     // previous state snapshot has key-value pairs that are copied with spread operator, enteredTitle is set, and object is returned
     setUserInput((prevState) => {
-      return { ...prevState, enteredTitle: event.target.value };
+      return { ...prevState, title: event.target.value };
     });
   };
 
   const amountChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, enteredAmount: event.target.value };
+      return { ...prevState, amount: event.target.value };
     });
   };
 
   const dateChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, enteredDate: event.target.value };
+      return { ...prevState, date: event.target.value };
     });
   };
 
@@ -47,8 +47,21 @@ const ExpenseForm = () => {
     setEnteredTitle(event.target.value);
   }; */
 
+  const submitHandler = (event) => {
+    event.preventDefault(); // prevents default onSubmit-behaviour which sends request to the hosting server and reloads the page
+
+    // if using multi state form, combine data into one object
+    /* const expenseData = {
+        title: enteredTitle,
+        amount: enteredAmount,
+        date: new Date(enteredDate);
+    } */
+
+    console.log(userInput);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
