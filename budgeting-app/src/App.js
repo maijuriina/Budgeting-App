@@ -25,10 +25,16 @@ const App = () => {
     },
   ];
 
+  // used as a prop on NewExpense to make a call through pointing to addExpenseHandler
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
+
   return (
     <div className="App">
       <h2 align="center">Budgeting App</h2>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

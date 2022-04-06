@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // multi state approach
   /*const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -58,12 +58,13 @@ const ExpenseForm = () => {
         date: new Date(enteredDate);
     } */
 
+    // call function through the passed prop from child to parent to pass the user-filled form to be used in NewExpense
+    props.onSaveExpenseData(userInput);
+
     // resetting data on form
     setUserInput(() => {
       return { title: "", amount: "", date: "" };
     });
-
-    console.log(userInput);
   };
 
   return (
