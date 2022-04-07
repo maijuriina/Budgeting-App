@@ -19,7 +19,6 @@ const ExpensesChart = (props) => {
   // next go through expenses logged and allocate amounts to corresponding months
   for (const expense of props.expenses) {
     const expenseMonth = expense.date.getMonth(); // getMonth months start at 0 - use index to pick corresponding chartDataPoint
-    console.log(chartDataPoints[expenseMonth].amount);
     chartDataPoints[expenseMonth].amount += expense.amount; // add amount spent in month to chartDataPoint
   }
 

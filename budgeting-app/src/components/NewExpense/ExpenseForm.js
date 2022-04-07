@@ -33,13 +33,13 @@ const ExpenseForm = (props) => {
 
   const amountChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, amount: event.target.value };
+      return { ...prevState, amount: event.target.value }; // + adds multiple values
     });
   };
 
   const dateChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, date: new Date(event.target.value) };
+      return { ...prevState, date: event.target.value };
     });
   };
 
@@ -51,15 +51,15 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault(); // prevents default onSubmit-behaviour which sends request to the hosting server and reloads the page
 
-    // if using multi state form, combine data into one object here
-    /* const expenseData = {
-        title: enteredTitle,
-        amount: enteredAmount,
-        date: new Date(enteredDate);
-    } */
+    // if using multi state form, combine data into one object here AND in object approach to conform Date
+    const expenseData = {
+      title: userInput.title,
+      amount: +userInput.amount,
+      date: new Date(userInput.date),
+    };
 
     // call function through the passed prop from child to parent to pass the user-filled form to be used in NewExpense
-    props.onSaveExpenseData(userInput);
+    props.onSaveExpenseData(expenseData);
 
     // resetting data on form
     setUserInput(() => {
