@@ -71,7 +71,7 @@ const ExpenseForm = (props) => {
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
-          <label>Title</label>
+          <label>Nimi</label>
           <input
             type="text"
             value={userInput.title}
@@ -79,7 +79,7 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className="new-expense__control">
-          <label>Amount</label>
+          <label>Hinta</label>
           <input
             type="number"
             min="0.01"
@@ -89,7 +89,7 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className="new-expense__control">
-          <label>Date</label>
+          <label>Päivämäärä</label>
           <input
             type="date"
             min="2019-01-01"
@@ -101,9 +101,9 @@ const ExpenseForm = (props) => {
       </div>
       <div className="new-expense__actions">
         <button type="button" onClick={props.onCancel}>
-          Cancel
+          Peruuta
         </button>
-        <button type="submit">Add expense</button>
+        <button type="submit">Lisää kulu</button>
       </div>
     </form>
   );

@@ -29,7 +29,7 @@ const NewExpense = (props) => {
   return (
     <div className="new-expense">
       {!isAdding && (
-        <button onClick={startAddingHandler}>Add New Expense</button>
+        <button onClick={startAddingHandler}>Lisää uusi kulu</button>
       )}
       {isAdding && (
         <ExpenseForm
